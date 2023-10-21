@@ -2,13 +2,15 @@ package objects;
 
 import display.GameObject;
 import handler.ObjectHandler;
+import objects.base.FloatingGameObject;
+import objects.helper.TubeType;
 import play.Game;
 import loader.GraphicsLoader;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Tube extends GameObject {
+public class Tube extends FloatingGameObject {
     TubeType type;
     BufferedImage tubeBlock;
     BufferedImage tube;
@@ -16,7 +18,6 @@ public class Tube extends GameObject {
     public Tube(int x, int y, int width, int height, TubeType type) {
         super(x, y, width, height);
         this.type = type;
-        this.velY = 1.0F;
         this.tube = GraphicsLoader.loadGraphics("pictures/tube.png");
         if (type == TubeType.BOTTOM) {
             this.tubeBlock = GraphicsLoader.loadGraphics("pictures/tubebottomdown.png");
@@ -27,8 +28,8 @@ public class Tube extends GameObject {
     }
 
     public void tick() {
-        this.y = (int)((float)this.y - this.velY);
-        if (this.y + this.width < 0) {
+        this.x = (int)((float)this.x - HORIZONTAL_VELOCITY);
+        if (this.x + this.width < 0) {
             ObjectHandler.removeObject(this);
             if (this.type == TubeType.TOP) {
                 ++Game.score;

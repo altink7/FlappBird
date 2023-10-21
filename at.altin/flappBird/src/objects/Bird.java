@@ -3,16 +3,15 @@ package objects;
 import display.Animation;
 import display.GameObject;
 import handler.ObjectHandler;
+import objects.base.FloatingGameObject;
 import play.Game;
 import loader.GraphicsLoader;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-public class Bird extends GameObject {
-    Animation animation;
-    public float gravity = 0.3F;
-    public float maxSpeed = 12.0F;
+public class Bird extends FloatingGameObject {
+    private final Animation animation;
 
     public Bird(int x, int y, int width, int height) {
         super(x, y, width, height);
@@ -28,10 +27,10 @@ public class Bird extends GameObject {
     }
 
     public void tick() {
-        this.velY += this.gravity;
+        this.velY += GRAVITY;
         this.y = (int)((float)this.y + this.velY);
-        if (this.velY > this.maxSpeed) {
-            this.velY = this.maxSpeed;
+        if (this.velY > MAX_SPEED) {
+            this.velY = MAX_SPEED;
         }
 
         if (this.y + this.height > 602) {

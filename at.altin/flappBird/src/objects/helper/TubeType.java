@@ -1,4 +1,4 @@
-package objects;
+package objects.helper;
 
 public enum TubeType {
     BOTTOM,
