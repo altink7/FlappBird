@@ -55,14 +55,10 @@ public class Game extends Canvas implements Runnable {
         startButton = new Button(138, 200, 156, 87, GraphicsLoader.loadGraphics("pictures/playbutton.png"));
     }
 
-    public synchronized static void tick() {
-        Iterator<GameObject> iterator = ObjectHandler.list.iterator();
-        while (iterator.hasNext()) {
-            GameObject obj = iterator.next();
-            obj.tick();
-            if (obj.getY() > 768 || obj.getY() < -obj.getHeight()) {
-                iterator.remove();
-            }
+    public void tick() {
+        if (!gameover) {
+            ObjectHandler.tick();
+            ground.tick();
         }
     }
 

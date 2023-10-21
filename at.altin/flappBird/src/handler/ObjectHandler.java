@@ -25,9 +25,11 @@ public class ObjectHandler {
     public static void render(Graphics g) {
         GameObject temp;
 
-        for (GameObject gameObject : list) {
-            temp = gameObject;
+        int i = 0;
+        while (i < list.size()) {
+            temp = list.get(i);
             temp.render(g);
+            ++i;
         }
 
     }
@@ -35,9 +37,11 @@ public class ObjectHandler {
     public static void tick() {
         GameObject temp;
 
-        for (GameObject gameObject : list) {
-            temp = gameObject;
+        int i = 0;
+        while (i < list.size()) {
+            temp = list.get(i);
             temp.tick();
+            ++i;
         }
 
     }
