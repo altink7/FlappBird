@@ -18,6 +18,7 @@ import java.net.ServerSocket;
 public class Game extends Canvas implements Runnable {
     public static final int WIDTH = 432;
     public static final int HEIGHT = 768;
+    public static final int BIRD_POS_X = 50;
     public boolean running;
     public static boolean gameover;
     public  BufferedImage img_gameover;
@@ -49,7 +50,7 @@ public class Game extends Canvas implements Runnable {
         img_gameover = GraphicsLoader.loadGraphics("pictures/gameover.png");
         background = GraphicsLoader.loadGraphics("pictures/background.png");
         ground = new Ground();
-        bird = new Bird(50, 50, 51, 36);
+        bird = new Bird(BIRD_POS_X, 50, 51, 36);
         startButton = new Button(138, 200, 156, 87, GraphicsLoader.loadGraphics("pictures/playbutton.png"));
     }
 

@@ -29,13 +29,16 @@ public class Tube extends FloatingGameObject {
 
     public void tick() {
         this.x = (int)((float)this.x - HORIZONTAL_VELOCITY);
-        if (this.x + this.width < 0) {
-            ObjectHandler.removeObject(this);
+        if (this.x + this.width == Game.BIRD_POS_X) {
+            // Wenn es genau bei der Position von Bird ist, dann werden die Punkte erhoeht
             if (this.type == TubeType.TOP) {
                 ++Game.score;
             }
         }
 
+        if (this.x + this.width < 0) {
+            ObjectHandler.removeObject(this);
+        }
     }
 
     public void render(Graphics g) {
