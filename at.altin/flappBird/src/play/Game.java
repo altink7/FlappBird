@@ -10,13 +10,9 @@ import objects.Button;
 import objects.Ground;
 import service.GraphicsLoader;
 
-import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
 import java.net.ServerSocket;
 
 public class Game extends Canvas implements Runnable {
@@ -42,7 +38,7 @@ public class Game extends Canvas implements Runnable {
 
     public synchronized void start() {
         this.running = true;
-        this.thread = new Thread();
+        this.thread = new Thread(this);
         this.thread.start();
         this.run();
     }
@@ -71,15 +67,15 @@ public class Game extends Canvas implements Runnable {
             this.createBufferStrategy(3);
         } else {
             Graphics g = bs.getDrawGraphics();
-            g.drawImage(background, 0, 0, (ImageObserver)null);
+            g.drawImage(background, 0, 0, null);
             ground.render(g);
             ObjectHandler.render(g);
             if (gameover) {
-                g.drawImage(img_gameover, 72, 130, (ImageObserver)null);
+                g.drawImage(img_gameover, 72, 130, null);
                 startButton.render(g);
             }
 
-            g.setFont(new Font("Arial", 1, 48));
+            g.setFont(new Font("Arial", Font.BOLD, 48));
             g.setColor(Color.WHITE);
             String s = Integer.toString(score);
             int textWidth = g.getFontMetrics().stringWidth(s);
