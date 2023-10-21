@@ -20,7 +20,7 @@ public class TubeHandler {
         spacing = 170;
         minSize = 40;
         maxSize = area - spacing - minSize;
-        delay = 3;
+        delay = 2;
     }
 
     public TubeHandler() {

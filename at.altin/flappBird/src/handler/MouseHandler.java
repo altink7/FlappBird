@@ -21,12 +21,7 @@ public class MouseHandler implements MouseListener {
         if (Button.checkCollision(e.getX(), e.getY(), Game.startButton) && Game.gameover) {
             logger.info("Start Button pressed");
 
-            Game.startButton.pressed = true;
-            ObjectHandler.list.clear();
-            ObjectHandler.addObject(Game.bird);
-            Game.gameover = false;
-            Game.score = 0;
-            Game.startButton.pressed = false;
+            Game.reset();
         }
 
     }

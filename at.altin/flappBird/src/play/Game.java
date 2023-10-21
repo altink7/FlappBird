@@ -1,6 +1,5 @@
 package play;
 
-import display.GameObject;
 import display.Window;
 import handler.KeyHandler;
 import handler.MouseHandler;
@@ -15,16 +14,15 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.net.ServerSocket;
-import java.util.Iterator;
 
 public class Game extends Canvas implements Runnable {
     public static final int WIDTH = 432;
     public static final int HEIGHT = 768;
     public boolean running;
     public static boolean gameover;
-    public static BufferedImage img_gameover;
-    public static BufferedImage background;
-    public static Ground ground;
+    public  BufferedImage img_gameover;
+    public BufferedImage background;
+    public Ground ground;
     public static Bird bird;
     public static Button startButton;
     public static int score;
@@ -35,11 +33,11 @@ public class Game extends Canvas implements Runnable {
     }
 
     public static void main(String[] args) {
-        new Window(432, 768, "FlappyBird [Springen mit Leertaste]", new Game());
+        new Window(WIDTH, HEIGHT, "FlappyBird [Springen mit Leertaste]", new Game());
     }
 
     public synchronized void start() {
-        this.running = true;
+        running = true;
         this.thread = new Thread(this);
         this.thread.start();
         this.run();
@@ -53,6 +51,13 @@ public class Game extends Canvas implements Runnable {
         ground = new Ground();
         bird = new Bird(50, 50, 51, 36);
         startButton = new Button(138, 200, 156, 87, GraphicsLoader.loadGraphics("pictures/playbutton.png"));
+    }
+
+    public static void reset() {
+        ObjectHandler.list.clear();
+        ObjectHandler.addObject(bird);
+        gameover = false;
+        score = 0;
     }
 
     public void tick() {
@@ -97,7 +102,7 @@ public class Game extends Canvas implements Runnable {
         int updates = 0;
         int frames = 0;
 
-        while(this.running) {
+        while(running) {
             long now = System.nanoTime();
             delta += (double)(now - pastTime) / ns;
 
@@ -108,7 +113,7 @@ public class Game extends Canvas implements Runnable {
                 ++frames;
             }
 
-            if (System.currentTimeMillis() - timer > 1000L && !gameover) {
+            if (System.currentTimeMillis() - timer > 1000L) {
                 timer += 1000L;
                 System.out.println("FPS: " + frames + " | TICKS: " + updates);
                 TubeHandler.tick();
