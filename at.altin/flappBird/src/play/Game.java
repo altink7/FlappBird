@@ -5,10 +5,10 @@ import handler.KeyHandler;
 import handler.MouseHandler;
 import handler.ObjectHandler;
 import handler.TubeHandler;
+import loader.GraphicsLoader;
 import objects.Bird;
 import objects.Button;
 import objects.Ground;
-import loader.GraphicsLoader;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -19,6 +19,15 @@ public class Game extends Canvas implements Runnable {
     public static final int WIDTH = 432;
     public static final int HEIGHT = 768;
     public static final int BIRD_POS_X = 50;
+    public static final int SCORE_X_POS = 216;
+    public static final int SCORE_Y_POS = 40;
+    public static final int SCORE_FONT_SIZE = 48;
+    public static final int IMAGE_Y = 130;
+    public static final int NUM_BUFFERS = 3;
+    public static final double AMOUNT_OF_TICKS = 60.0D;
+    public static final double NANOSECONDS_TICK = 1.0E9D / AMOUNT_OF_TICKS;
+    public static final int BIRD_STARTING_HEIGHT = 36;
+
     public boolean running;
     public static boolean gameover;
     public  BufferedImage img_gameover;
@@ -50,8 +59,11 @@ public class Game extends Canvas implements Runnable {
         img_gameover = GraphicsLoader.loadGraphics("pictures/gameover.png");
         background = GraphicsLoader.loadGraphics("pictures/background.png");
         ground = new Ground();
-        bird = new Bird(BIRD_POS_X, 50, 51, 36);
-        startButton = new Button(138, 200, 156, 87, GraphicsLoader.loadGraphics("pictures/playbutton.png"));
+        bird = new Bird(BIRD_POS_X, BIRD_POS_X, BIRD_POS_X, BIRD_STARTING_HEIGHT);
+        startButton = new Button(Button.startGameButtonDesign().get("x"),
+                Button.startGameButtonDesign().get("y"),
+                Button.startGameButtonDesign().get("width"),
+                Button.startGameButtonDesign().get("height"), GraphicsLoader.loadGraphics("pictures/playbutton.png"));
     }
 
     public static void reset() {
@@ -71,22 +83,22 @@ public class Game extends Canvas implements Runnable {
     public void render() {
         BufferStrategy bs = this.getBufferStrategy();
         if (bs == null) {
-            this.createBufferStrategy(3);
+            this.createBufferStrategy(NUM_BUFFERS);
         } else {
             Graphics g = bs.getDrawGraphics();
             g.drawImage(background, 0, 0, null);
             ground.render(g);
             ObjectHandler.render(g);
             if (gameover) {
-                g.drawImage(img_gameover, 72, 130, null);
+                g.drawImage(img_gameover, TubeHandler.TUBE_WIDTH, IMAGE_Y, null);
                 startButton.render(g);
             }
 
-            g.setFont(new Font("Arial", Font.BOLD, 48));
+            g.setFont(new Font("Arial", Font.BOLD, SCORE_FONT_SIZE));
             g.setColor(Color.WHITE);
             String s = Integer.toString(score);
             int textWidth = g.getFontMetrics().stringWidth(s);
-            g.drawString(s, 216 - textWidth / 2, 40);
+            g.drawString(s, SCORE_X_POS - textWidth / 2, SCORE_Y_POS);
             g.dispose();
             bs.show();
         }
@@ -96,8 +108,6 @@ public class Game extends Canvas implements Runnable {
         this.init();
         this.requestFocus();
         long pastTime = System.nanoTime();
-        double amountOfTicks = 60.0D;
-        double ns = 1.0E9D / amountOfTicks;
         double delta = 0.0D;
         long timer = System.currentTimeMillis();
         int updates = 0;
@@ -105,7 +115,7 @@ public class Game extends Canvas implements Runnable {
 
         while(running) {
             long now = System.nanoTime();
-            delta += (double)(now - pastTime) / ns;
+            delta += (double)(now - pastTime) / NANOSECONDS_TICK;
 
             for(pastTime = now; delta > 0.0D; --delta) {
                 tick();

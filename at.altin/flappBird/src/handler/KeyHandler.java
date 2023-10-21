@@ -1,5 +1,6 @@
 package handler;
 
+import objects.base.FloatingGameObject;
 import play.Game;
 
 import java.awt.event.KeyEvent;
@@ -17,8 +18,8 @@ public class KeyHandler implements KeyListener {
     }
 
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == 32) {
-            Game.bird.setVelY(-5.0F);
+        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            Game.bird.setVelY(-FloatingGameObject.MAX_SPEED);
         }
 
     }

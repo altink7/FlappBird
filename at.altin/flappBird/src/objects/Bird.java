@@ -33,8 +33,8 @@ public class Bird extends FloatingGameObject {
             this.velY = MAX_SPEED;
         }
 
-        if (this.y + this.height > 602) {
-            this.y = 602 - this.height;
+        if (this.y + this.height > Ground.DRAW_IMAGE_Y_VALUE) {
+            this.y = Ground.DRAW_IMAGE_Y_VALUE - this.height;
             this.setVelY(0.0F);
         }
 

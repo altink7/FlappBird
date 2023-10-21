@@ -2,6 +2,8 @@ package objects;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Button {
     public int x;
@@ -30,5 +32,13 @@ public class Button {
             g.drawImage(this.image, this.x, this.y, null);
         }
 
+    }
+    public static Map<String, Integer> startGameButtonDesign() {
+        Map<String, Integer> valueMap = new HashMap<>();
+        valueMap.put("x", 138);
+        valueMap.put("y", 200);
+        valueMap.put("width", 156);
+        valueMap.put("height", 87);
+        return valueMap;
     }
 }

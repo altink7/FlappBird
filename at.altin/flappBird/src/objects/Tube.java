@@ -1,11 +1,11 @@
 package objects;
 
-import display.GameObject;
 import handler.ObjectHandler;
+import handler.TubeHandler;
+import loader.GraphicsLoader;
 import objects.base.FloatingGameObject;
 import objects.helper.TubeType;
 import play.Game;
-import loader.GraphicsLoader;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -43,11 +43,11 @@ public class Tube extends FloatingGameObject {
 
     public void render(Graphics g) {
         if (this.type == TubeType.BOTTOM) {
-            g.drawImage(this.tube, this.x, this.y, 72, this.height, null);
+            g.drawImage(this.tube, this.x, this.y, TubeHandler.TUBE_WIDTH, this.height, null);
             g.drawImage(this.tubeBlock, this.x - 3, this.y, null);
         } else if (this.type == TubeType.TOP) {
-            g.drawImage(this.tube, this.x, this.y, 72, this.height, null);
-            g.drawImage(this.tubeBlock, this.x - 3, this.y + this.height - 36, null);
+            g.drawImage(this.tube, this.x, this.y, TubeHandler.TUBE_WIDTH, this.height, null);
+            g.drawImage(this.tubeBlock, this.x - 3, this.y + this.height - TubeHandler.TUBE_WIDTH/2, null);
         }
 
     }
