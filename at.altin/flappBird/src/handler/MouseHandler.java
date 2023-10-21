@@ -5,8 +5,12 @@ import play.Game;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.logging.Logger;
 
 public class MouseHandler implements MouseListener {
+
+    private static final Logger logger = Logger.getLogger(MouseHandler.class.getName());
+
     public MouseHandler() {
     }
 
@@ -15,6 +19,8 @@ public class MouseHandler implements MouseListener {
 
     public void mousePressed(MouseEvent e) {
         if (Button.checkCollision(e.getX(), e.getY(), Game.startButton) && Game.gameover) {
+            logger.info("Start Button pressed");
+
             Game.startButton.pressed = true;
             ObjectHandler.list.clear();
             ObjectHandler.addObject(Game.bird);

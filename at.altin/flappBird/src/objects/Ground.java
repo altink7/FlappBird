@@ -1,6 +1,6 @@
 package objects;
 
-import service.GraphicsLoader;
+import loader.GraphicsLoader;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

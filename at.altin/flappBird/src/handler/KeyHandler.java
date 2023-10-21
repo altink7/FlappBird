@@ -4,8 +4,12 @@ import play.Game;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.logging.Logger;
 
 public class KeyHandler implements KeyListener {
+
+    private static final Logger logger = Logger.getLogger(KeyHandler.class.getName());
+
     public KeyHandler() {
     }
 
@@ -14,6 +18,7 @@ public class KeyHandler implements KeyListener {
 
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == 32) {
+            logger.info("Space pressed");
             Game.bird.setVelY(-5.0F);
         }
 

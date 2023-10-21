@@ -3,6 +3,7 @@ package display;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
+@SuppressWarnings("unused")
 public abstract class GameObject {
     protected int x;
     protected int y;

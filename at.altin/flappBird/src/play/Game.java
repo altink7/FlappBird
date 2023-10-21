@@ -9,7 +9,7 @@ import handler.TubeHandler;
 import objects.Bird;
 import objects.Button;
 import objects.Ground;
-import service.GraphicsLoader;
+import loader.GraphicsLoader;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;

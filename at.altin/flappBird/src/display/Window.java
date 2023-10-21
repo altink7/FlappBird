@@ -2,10 +2,9 @@ package display;
 
 import play.Game;
 
-import java.awt.Component;
+import javax.swing.*;
 import java.io.IOException;
 import java.net.ServerSocket;
-import javax.swing.JFrame;
 
 public class Window extends JFrame {
     public Window(int width, int height, String title, Game game) {
@@ -19,9 +18,9 @@ public class Window extends JFrame {
         this.setTitle(title);
         this.pack();
         this.setSize(width + this.getInsets().left + this.getInsets().right, height + this.getInsets().top + this.getInsets().bottom);
-        this.setLocationRelativeTo((Component)null);
+        this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.setDefaultCloseOperation(3);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.add(game);
         game.start();

@@ -3,11 +3,10 @@ package objects;
 import display.GameObject;
 import handler.ObjectHandler;
 import play.Game;
-import service.GraphicsLoader;
+import loader.GraphicsLoader;
 
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
 
 public class Tube extends GameObject {
     TubeType type;

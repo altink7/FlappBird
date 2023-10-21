@@ -1,10 +1,14 @@
-package service;
+package loader;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 
 public class GraphicsLoader {
+
+    private static final Logger logger = Logger.getLogger(GraphicsLoader.class.getName());
+
     public GraphicsLoader() {
     }
 
@@ -14,7 +18,7 @@ public class GraphicsLoader {
         try {
             image = ImageIO.read(ResourceLoader.load("/" + path));
         } catch (IOException var3) {
-            var3.printStackTrace();
+            logger.severe("Error while loading image: " + path);
         }
 
         return image;

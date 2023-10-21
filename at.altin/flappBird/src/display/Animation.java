@@ -1,9 +1,9 @@
 package display;
 
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
 
+@SuppressWarnings("unused")
 public class Animation {
     private int x;
     private int y;
@@ -44,15 +44,15 @@ public class Animation {
         this.delay = delay;
         this.startTime = 0L;
         this.loop = loop;
-        this.setTarget((GameObject)null);
+        this.setTarget(null);
         this.images = images;
     }
 
     public void render(Graphics g) {
         if (this.target == null) {
-            g.drawImage(this.images[this.currentImage], this.x, this.y, (ImageObserver)null);
+            g.drawImage(this.images[this.currentImage], this.x, this.y, null);
         } else {
-            g.drawImage(this.images[this.currentImage], this.target.x, this.target.y, (ImageObserver)null);
+            g.drawImage(this.images[this.currentImage], this.target.x, this.target.y, null);
         }
 
     }
