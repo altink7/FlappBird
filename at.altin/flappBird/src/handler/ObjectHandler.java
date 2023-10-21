@@ -2,11 +2,14 @@ package handler;
 
 import display.GameObject;
 
-import java.awt.Graphics;
+import java.awt.*;
+import java.util.Collections;
 import java.util.LinkedList;
+import java.util.List;
 
 public class ObjectHandler {
-    public static LinkedList<GameObject> list = new LinkedList<>();
+
+    public static List<GameObject> list = Collections.synchronizedList(new LinkedList<>());
 
     public ObjectHandler() {
     }

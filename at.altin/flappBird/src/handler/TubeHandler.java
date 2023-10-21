@@ -17,7 +17,7 @@ public class TubeHandler {
 
     static {
         area = 768 - groundSize;
-        spacing = 170;
+        spacing = 10;
         minSize = 40;
         maxSize = area - spacing - minSize;
         delay = 1;

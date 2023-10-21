@@ -1,5 +1,6 @@
 package play;
 
+import display.GameObject;
 import display.Window;
 import handler.KeyHandler;
 import handler.MouseHandler;
@@ -14,6 +15,7 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.net.ServerSocket;
+import java.util.Iterator;
 
 public class Game extends Canvas implements Runnable {
     public static final int WIDTH = 432;
@@ -53,12 +55,15 @@ public class Game extends Canvas implements Runnable {
         startButton = new Button(138, 200, 156, 87, GraphicsLoader.loadGraphics("pictures/playbutton.png"));
     }
 
-    public void tick() {
-        if (!gameover) {
-            ObjectHandler.tick();
-            ground.tick();
+    public synchronized static void tick() {
+        Iterator<GameObject> iterator = ObjectHandler.list.iterator();
+        while (iterator.hasNext()) {
+            GameObject obj = iterator.next();
+            obj.tick();
+            if (obj.getY() > 768 || obj.getY() < -obj.getHeight()) {
+                iterator.remove();
+            }
         }
-
     }
 
     public void render() {
