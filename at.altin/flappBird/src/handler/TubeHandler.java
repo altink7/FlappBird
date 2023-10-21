@@ -1,6 +1,7 @@
 package handler;
 
-import handler.ObjectHandler;
+import objects.Tube;
+import objects.TubeType;
 
 import java.util.Random;
 
@@ -27,7 +28,10 @@ public class TubeHandler {
 
     public static void spawnTube() {
         int heightTop;
-        for(heightTop = random.nextInt(maxSize) + 1; heightTop < minSize; heightTop = random.nextInt(maxSize) + 1) {
+        heightTop = random.nextInt(maxSize) + 1;
+        while (heightTop < minSize) {
+            //TODO: Implement
+            heightTop = random.nextInt(maxSize) + 1;
         }
 
         int heightBottom = area - spacing - heightTop;

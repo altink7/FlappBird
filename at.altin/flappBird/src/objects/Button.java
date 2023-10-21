@@ -1,8 +1,7 @@
 package objects;
 
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
 
 public class Button {
     public int x;
@@ -10,7 +9,7 @@ public class Button {
     public int width;
     public int height;
     public boolean pressed;
-    private BufferedImage image;
+    private final BufferedImage image;
 
     public Button(int x, int y, int width, int height, BufferedImage image) {
         this.x = x;
@@ -26,9 +25,9 @@ public class Button {
 
     public void render(Graphics g) {
         if (this.pressed) {
-            g.drawImage(this.image, this.x + 1, this.y + 1, this.width - 2, this.height - 2, (ImageObserver)null);
+            g.drawImage(this.image, this.x + 1, this.y + 1, this.width - 2, this.height - 2, null);
         } else {
-            g.drawImage(this.image, this.x, this.y, (ImageObserver)null);
+            g.drawImage(this.image, this.x, this.y, null);
         }
 
     }

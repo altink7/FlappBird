@@ -19,7 +19,7 @@ public class Bird extends GameObject {
         BufferedImage[] images = new BufferedImage[3];
 
         for(int i = 0; i < images.length; ++i) {
-            images[i] = GraphicsLoader.loadGraphics("bird" + i + ".png");
+            images[i] = GraphicsLoader.loadGraphics("pictures/bird" + i + ".png");
         }
 
         this.animation = new Animation(this, 100L, true, images);
@@ -44,10 +44,10 @@ public class Bird extends GameObject {
             this.setVelY(0.0F);
         }
 
-        GameObject temp = null;
+        GameObject temp;
 
         for(int i = 0; i < ObjectHandler.list.size(); ++i) {
-            temp = (GameObject)ObjectHandler.list.get(i);
+            temp = ObjectHandler.list.get(i);
             if (temp instanceof Tube && this.getBounds().intersects(temp.getBounds())) {
                 Game.gameover = true;
             }

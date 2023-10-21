@@ -2,6 +2,7 @@ package objects;
 
 import display.GameObject;
 import handler.ObjectHandler;
+import play.Game;
 import service.GraphicsLoader;
 
 import java.awt.Graphics;
@@ -39,11 +40,11 @@ public class Tube extends GameObject {
 
     public void render(Graphics g) {
         if (this.type == TubeType.BOTTOM) {
-            g.drawImage(this.tube, this.x, this.y, 72, this.height, (ImageObserver)null);
-            g.drawImage(this.tubeBlock, this.x - 3, this.y, (ImageObserver)null);
+            g.drawImage(this.tube, this.x, this.y, 72, this.height, null);
+            g.drawImage(this.tubeBlock, this.x - 3, this.y, null);
         } else if (this.type == TubeType.TOP) {
-            g.drawImage(this.tube, this.x, this.y, 72, this.height, (ImageObserver)null);
-            g.drawImage(this.tubeBlock, this.x - 3, this.y + this.height - 36, (ImageObserver)null);
+            g.drawImage(this.tube, this.x, this.y, 72, this.height, null);
+            g.drawImage(this.tubeBlock, this.x - 3, this.y + this.height - 36, null);
         }
 
     }

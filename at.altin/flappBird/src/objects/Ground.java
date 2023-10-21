@@ -2,12 +2,11 @@ package objects;
 
 import service.GraphicsLoader;
 
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
 
 public class Ground {
-    private BufferedImage image = GraphicsLoader.loadGraphics("pictures/ground.png");
+    private final BufferedImage image = GraphicsLoader.loadGraphics("pictures/ground.png");
     private int x1 = 0;
     private int x2 = 432;
 
@@ -29,7 +28,7 @@ public class Ground {
     }
 
     public void render(Graphics g) {
-        g.drawImage(this.image, this.x1, 600, (ImageObserver)null);
-        g.drawImage(this.image, this.x2, 600, (ImageObserver)null);
+        g.drawImage(this.image, this.x1, 600, null);
+        g.drawImage(this.image, this.x2, 600, null);
     }
 }
