@@ -4,7 +4,7 @@ import display.Animation;
 import display.GameObject;
 import handler.ObjectHandler;
 import play.Game;
-import handler.GraphicsLoader;
+import loader.GraphicsLoader;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
