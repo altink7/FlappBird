@@ -106,7 +106,7 @@ public class Game extends Canvas implements Runnable {
             delta += (double)(now - pastTime) / ns;
 
             for(pastTime = now; delta > 0.0D; --delta) {
-                this.tick();
+                tick();
                 ++updates;
                 this.render();
                 ++frames;
