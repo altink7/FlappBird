@@ -1,6 +1,6 @@
 # FlappBird
 
-This Game is like Flappy Bird!
+This play.Game is like Flappy objects.Bird!
 
 
 Press Space to fly, and watch out after Pipes
