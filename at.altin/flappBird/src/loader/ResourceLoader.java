@@ -12,7 +12,6 @@ public class ResourceLoader {
 
     public static InputStream load(String path) {
         InputStream input = ResourceLoader.class.getResourceAsStream(path);
-        logger.info("Loading resource: " + path);
 
         if (input == null) {
             input = ResourceLoader.class.getResourceAsStream("/" + path);
