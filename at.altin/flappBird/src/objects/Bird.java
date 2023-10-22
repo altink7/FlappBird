@@ -3,6 +3,7 @@ package objects;
 import constants.GameConstants;
 import constants.objects.BirdConstants;
 import constants.objects.GroundConstants;
+import dialog.UsernameInputDialog;
 import display.Animation;
 import display.GameObject;
 import handler.ObjectHandler;
@@ -51,7 +52,11 @@ public class Bird extends FloatingGameObject {
         for(int i = 0; i < ObjectHandler.list.size(); ++i) {
             temp = ObjectHandler.list.get(i);
             if (temp instanceof Tube && this.getBounds().intersects(temp.getBounds())) {
+                // Hier wird das Swing-Fenster zur Eingabe des Benutzernamens angezeigt
+                new UsernameInputDialog(Game.SCORE);
+
                 Game.gameover = true;
+                UsernameInputDialog.INPUT_FINISHED = false;
             }
         }
 

@@ -4,6 +4,7 @@ import constants.GameConstants;
 import constants.objects.BirdConstants;
 import constants.objects.ScoreConstants;
 import constants.objects.TubeConstants;
+import dialog.UsernameInputDialog;
 import display.Window;
 import handler.KeyHandler;
 import handler.MouseHandler;
@@ -81,7 +82,7 @@ public class Game extends Canvas implements Runnable {
             g.drawImage(background, 0, 0, null);
             ground.render(g);
             ObjectHandler.render(g);
-            if (gameover) {
+            if (gameover && UsernameInputDialog.INPUT_FINISHED) {
                 g.drawImage(img_gameover, TubeConstants.TUBE_WIDTH, GameConstants.IMAGE_Y, null);
                 START_BUTTON.render(g);
             }

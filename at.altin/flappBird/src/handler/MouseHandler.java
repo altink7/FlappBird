@@ -1,5 +1,6 @@
 package handler;
 
+import dialog.UsernameInputDialog;
 import objects.Button;
 import play.Game;
 
