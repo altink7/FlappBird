@@ -1,5 +1,6 @@
 package objects;
 
+import constants.GameConstants;
 import display.Animation;
 import display.GameObject;
 import handler.ObjectHandler;
@@ -27,14 +28,14 @@ public class Bird extends FloatingGameObject {
     }
 
     public void tick() {
-        this.velY += GRAVITY;
+        this.velY += GameConstants.GRAVITY;
         this.y = (int)((float)this.y + this.velY);
-        if (this.velY > MAX_SPEED) {
-            this.velY = MAX_SPEED;
+        if (this.velY > GameConstants.MAX_SPEED) {
+            this.velY = GameConstants.MAX_SPEED;
         }
 
-        if (this.y + this.height > Ground.DRAW_IMAGE_Y_VALUE) {
-            this.y = Ground.DRAW_IMAGE_Y_VALUE - this.height;
+        if (this.y + this.height > GameConstants.DRAW_IMAGE_Y_VALUE) {
+            this.y = GameConstants.DRAW_IMAGE_Y_VALUE - this.height;
             this.setVelY(0.0F);
         }
 

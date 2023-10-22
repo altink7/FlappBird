@@ -1,5 +1,6 @@
 package handler;
 
+import constants.GameConstants;
 import objects.Tube;
 import objects.helper.TubeType;
 import play.Game;
@@ -8,9 +9,6 @@ import java.util.Random;
 
 public class TubeHandler {
     private static final Random random = new Random();
-    public static final int X_START_POSITION_TUBE = 500;
-    public static final int TUBE_WIDTH = 78;
-    public static int groundSize = 168;
     public static int area;
     public static int spacing;
     public static int minSize;
@@ -20,7 +18,7 @@ public class TubeHandler {
 
     static {
         //bereich in dem die rohre spawnen
-        area = Game.HEIGHT - groundSize;
+        area = GameConstants.HEIGHT - GameConstants.GROUND_SIZE;
         //abstand zwischen den rohren
         spacing = 170;
         //minimale groesse der rohre
@@ -42,8 +40,8 @@ public class TubeHandler {
         }
 
         int heightBottom = area - spacing - heightTop;
-        Tube tubeTop = new Tube(X_START_POSITION_TUBE, 0, TUBE_WIDTH, heightTop, TubeType.TOP);
-        Tube tubeBottom = new Tube(X_START_POSITION_TUBE, heightTop + spacing, TUBE_WIDTH, heightBottom, TubeType.BOTTOM);
+        Tube tubeTop = new Tube(GameConstants.X_START_POSITION_TUBE, 0, GameConstants.TUBE_WIDTH, heightTop, TubeType.TOP);
+        Tube tubeBottom = new Tube(GameConstants.X_START_POSITION_TUBE, heightTop + spacing, GameConstants.TUBE_WIDTH, heightBottom, TubeType.BOTTOM);
         ObjectHandler.addObject(tubeTop);
         ObjectHandler.addObject(tubeBottom);
     }

@@ -1,5 +1,6 @@
 package objects;
 
+import constants.GameConstants;
 import handler.ObjectHandler;
 import handler.TubeHandler;
 import loader.GraphicsLoader;
@@ -28,11 +29,11 @@ public class Tube extends FloatingGameObject {
     }
 
     public void tick() {
-        this.x = (int)((float)this.x - HORIZONTAL_VELOCITY);
-        if (this.x + this.width == Game.BIRD_POS_X) {
+        this.x = (int)((float)this.x - GameConstants.HORIZONTAL_VELOCITY);
+        if (this.x + this.width == GameConstants.BIRD_POS_X) {
             // Wenn es genau bei der Position von Bird ist, dann werden die Punkte erhoeht
             if (this.type == TubeType.TOP) {
-                ++Game.score;
+                ++Game.SCORE;
             }
         }
 
@@ -43,11 +44,11 @@ public class Tube extends FloatingGameObject {
 
     public void render(Graphics g) {
         if (this.type == TubeType.BOTTOM) {
-            g.drawImage(this.tube, this.x, this.y, TubeHandler.TUBE_WIDTH, this.height, null);
+            g.drawImage(this.tube, this.x, this.y, GameConstants.TUBE_WIDTH, this.height, null);
             g.drawImage(this.tubeBlock, this.x - 3, this.y, null);
         } else if (this.type == TubeType.TOP) {
-            g.drawImage(this.tube, this.x, this.y, TubeHandler.TUBE_WIDTH, this.height, null);
-            g.drawImage(this.tubeBlock, this.x - 3, this.y + this.height - TubeHandler.TUBE_WIDTH/2, null);
+            g.drawImage(this.tube, this.x, this.y, GameConstants.TUBE_WIDTH, this.height, null);
+            g.drawImage(this.tubeBlock, this.x - 3, this.y + this.height - GameConstants.TUBE_WIDTH/2, null);
         }
 
     }
