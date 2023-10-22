@@ -30,6 +30,13 @@ public class UsernameInputDialog extends JFrame {
             dispose();
         });
 
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                INPUT_FINISHED = true;
+            }
+        });
+
         add(promptLabel);
         add(usernameField);
         add(submitButton);
