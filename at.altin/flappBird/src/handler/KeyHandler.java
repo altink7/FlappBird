@@ -1,6 +1,7 @@
 package handler;
 
 import constants.GameConstants;
+import constants.objects.BirdConstants;
 import objects.base.FloatingGameObject;
 import play.Game;
 
@@ -20,7 +21,7 @@ public class KeyHandler implements KeyListener {
 
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            Game.BIRD.setVelY(-GameConstants.MAX_SPEED);
+            Game.BIRD.setVelY(-BirdConstants.MAX_SPEED);
         }
 
     }

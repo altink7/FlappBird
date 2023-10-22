@@ -1,6 +1,9 @@
 package play;
 
 import constants.GameConstants;
+import constants.objects.BirdConstants;
+import constants.objects.ScoreConstants;
+import constants.objects.TubeConstants;
 import display.Window;
 import handler.KeyHandler;
 import handler.MouseHandler;
@@ -48,7 +51,7 @@ public class Game extends Canvas implements Runnable {
         img_gameover = GraphicsLoader.loadGraphics("pictures/gameover.png");
         background = GraphicsLoader.loadGraphics("pictures/background.png");
         ground = new Ground();
-        BIRD = new Bird(GameConstants.BIRD_POS_X, GameConstants.BIRD_POS_X, GameConstants.BIRD_POS_X, GameConstants.BIRD_STARTING_HEIGHT);
+        BIRD = new Bird(BirdConstants.BIRD_POS_X, BirdConstants.BIRD_POS_X, BirdConstants.BIRD_POS_X, BirdConstants.BIRD_STARTING_HEIGHT);
         START_BUTTON = new Button(Button.startGameButtonDesign().get("x"),
                 Button.startGameButtonDesign().get("y"),
                 Button.startGameButtonDesign().get("width"),
@@ -79,15 +82,15 @@ public class Game extends Canvas implements Runnable {
             ground.render(g);
             ObjectHandler.render(g);
             if (gameover) {
-                g.drawImage(img_gameover, GameConstants.TUBE_WIDTH, GameConstants.IMAGE_Y, null);
+                g.drawImage(img_gameover, TubeConstants.TUBE_WIDTH, GameConstants.IMAGE_Y, null);
                 START_BUTTON.render(g);
             }
 
-            g.setFont(new Font("Arial", Font.BOLD, GameConstants.SCORE_FONT_SIZE));
+            g.setFont(new Font("Arial", Font.BOLD, ScoreConstants.SCORE_FONT_SIZE));
             g.setColor(Color.WHITE);
             String s = Integer.toString(SCORE);
             int textWidth = g.getFontMetrics().stringWidth(s);
-            g.drawString(s, GameConstants.SCORE_X_POS - textWidth / 2, GameConstants.SCORE_Y_POS);
+            g.drawString(s, ScoreConstants.SCORE_X_POS - textWidth / 2, ScoreConstants.SCORE_Y_POS);
             g.dispose();
             bs.show();
         }

@@ -1,6 +1,8 @@
 package handler;
 
 import constants.GameConstants;
+import constants.objects.GroundConstants;
+import constants.objects.TubeConstants;
 import objects.Tube;
 import objects.helper.TubeType;
 import play.Game;
@@ -18,7 +20,7 @@ public class TubeHandler {
 
     static {
         //bereich in dem die rohre spawnen
-        area = GameConstants.HEIGHT - GameConstants.GROUND_SIZE;
+        area = GameConstants.HEIGHT - GroundConstants.GROUND_SIZE;
         //abstand zwischen den rohren
         spacing = 170;
         //minimale groesse der rohre
@@ -40,8 +42,8 @@ public class TubeHandler {
         }
 
         int heightBottom = area - spacing - heightTop;
-        Tube tubeTop = new Tube(GameConstants.X_START_POSITION_TUBE, 0, GameConstants.TUBE_WIDTH, heightTop, TubeType.TOP);
-        Tube tubeBottom = new Tube(GameConstants.X_START_POSITION_TUBE, heightTop + spacing, GameConstants.TUBE_WIDTH, heightBottom, TubeType.BOTTOM);
+        Tube tubeTop = new Tube(TubeConstants.X_START_POSITION_TUBE, 0, TubeConstants.TUBE_WIDTH, heightTop, TubeType.TOP);
+        Tube tubeBottom = new Tube(TubeConstants.X_START_POSITION_TUBE, heightTop + spacing, TubeConstants.TUBE_WIDTH, heightBottom, TubeType.BOTTOM);
         ObjectHandler.addObject(tubeTop);
         ObjectHandler.addObject(tubeBottom);
     }

@@ -1,6 +1,7 @@
 package objects;
 
 import constants.GameConstants;
+import constants.objects.GroundConstants;
 import loader.GraphicsLoader;
 import objects.base.FloatingGameObject;
 import play.Game;
@@ -14,7 +15,7 @@ public class Ground extends FloatingGameObject {
     private int x2 = GameConstants.WIDTH;
 
     public Ground() {
-        super(0, 0, GameConstants.WIDTH, GameConstants.HEIGHT-GameConstants.DRAW_IMAGE_Y_VALUE);
+        super(0, 0, GameConstants.WIDTH, GameConstants.HEIGHT- GroundConstants.DRAW_IMAGE_Y_VALUE);
     }
 
     public void tick() {
@@ -30,7 +31,7 @@ public class Ground extends FloatingGameObject {
     }
 
     public void render(Graphics g) {
-        g.drawImage(this.image, this.x1, GameConstants.DRAW_IMAGE_Y_VALUE, null);
-        g.drawImage(this.image, this.x2, GameConstants.DRAW_IMAGE_Y_VALUE, null);
+        g.drawImage(this.image, this.x1, GroundConstants.DRAW_IMAGE_Y_VALUE, null);
+        g.drawImage(this.image, this.x2, GroundConstants.DRAW_IMAGE_Y_VALUE, null);
     }
 }
