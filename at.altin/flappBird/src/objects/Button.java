@@ -41,4 +41,17 @@ public class Button {
         valueMap.put("height", 87);
         return valueMap;
     }
+
+    /**
+     * should be shown under the start button
+     * @return Map with x, y, width, height
+     */
+    public static Map<String, Integer> rankingButtonDesign() {
+        Map<String, Integer> valueMap = new HashMap<>();
+        valueMap.put("x", 138);
+        valueMap.put("y", 300);
+        valueMap.put("width", 156);
+        valueMap.put("height", 87);
+        return valueMap;
+    }
 }

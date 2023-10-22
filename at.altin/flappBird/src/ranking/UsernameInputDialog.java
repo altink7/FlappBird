@@ -1,4 +1,4 @@
-package dialog;
+package ranking;
 
 import service.RankingService;
 

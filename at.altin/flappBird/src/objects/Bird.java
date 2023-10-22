@@ -1,9 +1,8 @@
 package objects;
 
-import constants.GameConstants;
 import constants.objects.BirdConstants;
 import constants.objects.GroundConstants;
-import dialog.UsernameInputDialog;
+import ranking.UsernameInputDialog;
 import display.Animation;
 import display.GameObject;
 import handler.ObjectHandler;

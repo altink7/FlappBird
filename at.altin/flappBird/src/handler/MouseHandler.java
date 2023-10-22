@@ -1,8 +1,8 @@
 package handler;
 
-import dialog.UsernameInputDialog;
 import objects.Button;
 import play.Game;
+import ranking.RankingTable;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -21,8 +21,13 @@ public class MouseHandler implements MouseListener {
     public void mousePressed(MouseEvent e) {
         if (Button.checkCollision(e.getX(), e.getY(), Game.START_BUTTON) && Game.gameover) {
             logger.info("Start Button pressed");
-
             Game.reset();
+        }
+
+        if(Button.checkCollision(e.getX(), e.getY(), Game.RANKING_BUTTON) && Game.gameover) {
+            logger.info("Ranking Button pressed");
+
+            new RankingTable();
         }
 
     }

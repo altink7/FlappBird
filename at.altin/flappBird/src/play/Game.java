@@ -4,7 +4,7 @@ import constants.GameConstants;
 import constants.objects.BirdConstants;
 import constants.objects.ScoreConstants;
 import constants.objects.TubeConstants;
-import dialog.UsernameInputDialog;
+import ranking.UsernameInputDialog;
 import display.Window;
 import handler.KeyHandler;
 import handler.MouseHandler;
@@ -28,6 +28,7 @@ public class Game extends Canvas implements Runnable {
     public Ground ground;
     public static Bird BIRD;
     public static Button START_BUTTON;
+    public static Button RANKING_BUTTON;
     public static int SCORE;
     Thread thread;
     public ServerSocket serverSocket;
@@ -57,6 +58,11 @@ public class Game extends Canvas implements Runnable {
                 Button.startGameButtonDesign().get("y"),
                 Button.startGameButtonDesign().get("width"),
                 Button.startGameButtonDesign().get("height"), GraphicsLoader.loadGraphics("pictures/playbutton.png"));
+
+        RANKING_BUTTON = new Button(Button.rankingButtonDesign().get("x"),
+                Button.rankingButtonDesign().get("y"),
+                Button.rankingButtonDesign().get("width"),
+                Button.rankingButtonDesign().get("height"), GraphicsLoader.loadGraphics("pictures/playbutton.png"));
     }
 
     public static void reset() {
@@ -85,6 +91,7 @@ public class Game extends Canvas implements Runnable {
             if (gameover && UsernameInputDialog.INPUT_FINISHED) {
                 g.drawImage(img_gameover, TubeConstants.TUBE_WIDTH, GameConstants.IMAGE_Y, null);
                 START_BUTTON.render(g);
+                RANKING_BUTTON.render(g);
             }
 
             g.setFont(new Font("Arial", Font.BOLD, ScoreConstants.SCORE_FONT_SIZE));
