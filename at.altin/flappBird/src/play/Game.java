@@ -71,6 +71,7 @@ public class Game extends Canvas implements Runnable {
         SCORE = 0;
         LEVEL = 1;
         TubeHandler.spacing = 170;
+        BirdConstants.MAX_SPEED = 5.0F;
     }
 
     public void tick() {
@@ -99,7 +100,7 @@ public class Game extends Canvas implements Runnable {
             g.setFont(new Font("Arial", Font.BOLD, ScoreConstants.SCORE_FONT_SIZE));
             g.setColor(Color.WHITE);
             String s = Integer.toString(SCORE);
-            String l = Integer.toString(LEVEL);
+            String l = "level " + LEVEL;
             int scoreWidth = g.getFontMetrics().stringWidth(s);
             int levelWidth = g.getFontMetrics().stringWidth(l);
             g.drawString(s, ScoreConstants.SCORE_X_POS - scoreWidth / 2, ScoreConstants.SCORE_Y_POS);

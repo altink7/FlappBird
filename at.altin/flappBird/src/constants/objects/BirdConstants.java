@@ -22,5 +22,5 @@ public class BirdConstants {
     /**
      * Die maximale Geschwindigkeit, mit der der Vogel nach rechts fliegt.
      */
-    public static final float MAX_SPEED = 5.0F;
+    public static float MAX_SPEED = 5.0F;
 }
