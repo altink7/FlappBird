@@ -4,12 +4,9 @@ import constants.GameConstants;
 import constants.objects.BirdConstants;
 import constants.objects.ScoreConstants;
 import constants.objects.TubeConstants;
+import handler.*;
 import ranking.UsernameInputDialog;
 import display.Window;
-import handler.KeyHandler;
-import handler.MouseHandler;
-import handler.ObjectHandler;
-import handler.TubeHandler;
 import loader.GraphicsLoader;
 import objects.Bird;
 import objects.Button;
@@ -64,6 +61,7 @@ public class Game extends Canvas implements Runnable {
                 Button.rankingButtonDesign().get("y"),
                 Button.rankingButtonDesign().get("width"),
                 Button.rankingButtonDesign().get("height"), GraphicsLoader.loadGraphics("pictures/playbutton.png"));
+        LEVEL = 1;
     }
 
     public static void reset() {
@@ -71,12 +69,15 @@ public class Game extends Canvas implements Runnable {
         ObjectHandler.addObject(BIRD);
         gameover = false;
         SCORE = 0;
+        LEVEL = 1;
+        TubeHandler.spacing = 170;
     }
 
     public void tick() {
         if (!gameover) {
             ObjectHandler.tick();
             ground.tick();
+            LevelHandler.tick();
         }
     }
 
