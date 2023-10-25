@@ -1,8 +1,6 @@
 package handler;
 
-import constants.GameConstants;
 import constants.objects.BirdConstants;
-import objects.Bird;
 import play.Game;
 
 import java.util.concurrent.Semaphore;
