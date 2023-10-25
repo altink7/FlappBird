@@ -30,6 +30,7 @@ public class Game extends Canvas implements Runnable {
     public static Button START_BUTTON;
     public static Button RANKING_BUTTON;
     public static int SCORE;
+    public static int LEVEL;
     Thread thread;
     public ServerSocket serverSocket;
 
@@ -97,8 +98,11 @@ public class Game extends Canvas implements Runnable {
             g.setFont(new Font("Arial", Font.BOLD, ScoreConstants.SCORE_FONT_SIZE));
             g.setColor(Color.WHITE);
             String s = Integer.toString(SCORE);
-            int textWidth = g.getFontMetrics().stringWidth(s);
-            g.drawString(s, ScoreConstants.SCORE_X_POS - textWidth / 2, ScoreConstants.SCORE_Y_POS);
+            String l = Integer.toString(LEVEL);
+            int scoreWidth = g.getFontMetrics().stringWidth(s);
+            int levelWidth = g.getFontMetrics().stringWidth(l);
+            g.drawString(s, ScoreConstants.SCORE_X_POS - scoreWidth / 2, ScoreConstants.SCORE_Y_POS);
+            g.drawString(l, ScoreConstants.SCORE_X_POS - levelWidth / 2, ScoreConstants.SCORE_Y_POS + 50);
             g.dispose();
             bs.show();
         }

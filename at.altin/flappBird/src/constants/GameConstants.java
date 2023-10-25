@@ -37,7 +37,7 @@ public class GameConstants {
     /**
      * The horizontal velocity at which the ground and tubes move to the left.
      */
-    public static final float HORIZONTAL_VELOCITY = 3.0F;
+    public static float HORIZONTAL_VELOCITY = 3.0F;
 
 
 }
