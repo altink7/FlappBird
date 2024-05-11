@@ -3,7 +3,11 @@ package constants.objects;
 /**
  * Enthält Konstanten für die Anzeige des Spielstands.
  */
-public class ScoreConstants {
+public final class ScoreConstants {
+
+    private ScoreConstants() {
+    }
+
     /**
      * Die x-Position des Spielstands.
      */

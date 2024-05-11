@@ -3,7 +3,11 @@ package constants.objects;
 /**
  * Enthält Konstanten für die Rohre im Spiel.
  */
-public class TubeConstants {
+public final class TubeConstants {
+
+    private TubeConstants() {
+    }
+
     /**
      * Die x-Startposition der Rohre.
      */
