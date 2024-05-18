@@ -3,7 +3,12 @@ package constants;
 /**
  * Constants for the Flappy Bird game.
  */
-public class GameConstants {
+public final class GameConstants {
+
+    private GameConstants() {
+        // Prevent instantiation
+    }
+
     /**
      * The width of the game window.
      */
@@ -37,7 +42,7 @@ public class GameConstants {
     /**
      * The horizontal velocity at which the ground and tubes move to the left.
      */
-    public static float HORIZONTAL_VELOCITY = 3.0F;
+    public static final float HORIZONTAL_VELOCITY = 3.0F;
 
 
 }

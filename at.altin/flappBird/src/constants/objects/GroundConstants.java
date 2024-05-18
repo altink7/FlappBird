@@ -3,7 +3,11 @@ package constants.objects;
 /**
  * Enthält Konstanten für den Boden im Spiel.
  */
-public class GroundConstants {
+public final class GroundConstants {
+
+    private GroundConstants() {
+    }
+
     /**
      * Die y-Position, bei der der Boden gezeichnet wird.
      */

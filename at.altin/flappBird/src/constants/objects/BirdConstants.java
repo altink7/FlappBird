@@ -3,7 +3,11 @@ package constants.objects;
 /**
  * Enthält Konstanten für den Vogel im Spiel.
  */
-public class BirdConstants {
+public final class BirdConstants {
+
+    private BirdConstants() {
+    }
+
     /**
      * Die Anfangsposition des Vogels auf der x-Achse.
      */
